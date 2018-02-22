@@ -12,8 +12,10 @@ def mypca(X, no_dims=50):
     return Y
 
 X = np.array([[-1, -10], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
+print("original x:\n{}".format(X))
 pca = PCA(n_components=2)
 pca.fit(X)
+print("after:\n{}".format(pca.transform(X)))
 #print("SINGULAR VALUES:\n{}".format(pca.singular_values_))
 #print("AFTER TRANSFORM:\n{}".format(pca.transform(X)))
 #print("ANOTHER TRANSFORM:\n{}".format(mypca(X,no_dims=2)))

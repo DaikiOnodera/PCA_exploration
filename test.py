@@ -11,11 +11,12 @@ def mypca(X, no_dims=50):
     Y = np.dot(X, M[:, 0:no_dims])
     return Y
 
-X = np.array([[-1, -10], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
-print("original x:\n{}".format(X))
+#X = np.array([[-1, -10], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
+X = np.random.randn(50,20)
+print("original x:\n{}".format(X.shape))
 pca = PCA(n_components=2)
 pca.fit(X)
-print("after:\n{}".format(pca.transform(X)))
+print("after:\n{}".format(pca.transform(X).shape))
 #print("SINGULAR VALUES:\n{}".format(pca.singular_values_))
 #print("AFTER TRANSFORM:\n{}".format(pca.transform(X)))
 #print("ANOTHER TRANSFORM:\n{}".format(mypca(X,no_dims=2)))

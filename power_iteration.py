@@ -26,6 +26,7 @@ def power_method(A, iter_num=1):
     # set initial vector q
     q = np.random.normal(size=A.shape[1])
     q = q / np.linalg.norm(q)
+    print("check:\n{}".format(np.dot(A.T, A)))
 
     for i in range(iter_num):
         q = np.dot(np.dot(A.T, A), q)
@@ -36,6 +37,8 @@ def power_method(A, iter_num=1):
     return u, s, v
 
 A = np.array([[1,2,3],[4,5,6],[7,8,9],[10,11,12]])
+print("A.T:\n{}".format(A.T))
+print("A:\n{}".format(A))
 u,s,v = power_method(A, iter_num=1)
 print(u)
 print(s)

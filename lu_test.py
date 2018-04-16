@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+# encoding:utf-8
+
+import numpy as np
+from scipy import linalg
+
+A = np.arange(1,25).reshape(6,4)
+Q = np.random.normal(size=(A.shape[1], 12))
+Q_, tmp_ = linalg.qr(np.dot(A, Q))
+print(np.dot(Q_[:,0], Q_[:,1]))
+print(np.dot(Q_[:,0], Q_[:,2]))
+print(np.dot(Q_[:,0], Q_[:,3]))
+print(np.dot(Q_[:,1], Q_[:,2]))
+Q, tmp = linalg.lu(np.dot(A, Q), permute_l=True)
+print("Q:\n{}".format(Q))
+#print("Q:{}".format(Q.shape))
+#print("tmp:\n{}".format(tmp))
+#print("tmp:{}".format(tmp.shape))
+#print("shape:{}".format(A.T.shape))
+Q, tmp = linalg.lu(np.dot(A.T, Q), permute_l=True)
+print("Q:\n{}".format(Q))
+Q, tmp = linalg.lu(np.dot(A, Q), permute_l=True)
+print("Q:\n{}".format(Q))
+Q, tmp = linalg.lu(np.dot(A.T, Q), permute_l=True)
+print("Q:\n{}".format(Q))
+Q, tmp = linalg.lu(np.dot(A, Q), permute_l=True)
+print("Q:\n{}".format(Q))
+Q, tmp = linalg.lu(np.dot(A.T, Q), permute_l=True)
+print("Q:\n{}".format(Q))
+Q, tmp = linalg.qr(np.dot(A, Q))
+print("Q:\n{}".format(Q))
+print(np.dot(Q[:,0], Q[:,1]))
+print(np.dot(Q[:,0], Q[:,2]))
+print(np.dot(Q[:,0], Q[:,3]))
+print(np.dot(Q[:,1], Q[:,2]))
